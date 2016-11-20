@@ -75,13 +75,16 @@ module.exports = (grunt) => {
             grunt.log.writeln("Try to sign extension '" + srcFile + "' with AMO");
             return new Promise((successCallback, errorCallback) => {
 
-                if(!this.data.jwtIssuer){
+                let jwtIssuer = this.data.jwtIssuer || process.env.jwtIssuer;
+                let jwtSecret = this.data.jwtSecret || process.env.jwtSecret;
+
+                if(!jwtIssuer){
                     grunt.log.error("Error, can't sign extension with AMO, no jwtIssuer defined!");
                     grunt.log.error("Go to https://addons.mozilla.org/en-US/developers/addon/api/key/ to get credentials");
                     errorCallback();
                 }
 
-                if(!this.data.jwtSecret){
+                if(!jwtSecret){
                     grunt.log.error("Error, can't sign extension with AMO, no jwtSecret defined!");
                     grunt.log.error("Go to https://addons.mozilla.org/en-US/developers/addon/api/key/ to get credentials");
                     errorCallback();
@@ -91,8 +94,8 @@ module.exports = (grunt) => {
 
                 signAddon({
                     xpiPath: srcFile,
-                    apiKey: this.data.jwtIssuer,
-                    apiSecret: this.data.jwtSecret,
+                    apiKey: jwtIssuer,
+                    apiSecret: jwtSecret,
                     version: manifest.version,
                     id: manifest.id,
                     downloadDir: destDir
