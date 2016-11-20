@@ -45,9 +45,9 @@ grunt.initConfig({
 ### Options
 
 #### targets
-Type: `Array<String>`
-Default value: `[]`
-Required: `YES`
+- Type: `Array<String>`
+- Default value: `[]`
+- Required: `YES`
 
 An array contrains extension targets.
 Now only these values are supported:
@@ -55,32 +55,32 @@ Now only these values are supported:
  - `firefox-xpi` - Mozilla Firefox XPI extension signed online with AMO
 
 #### privateKey
-Type: `String`
-Default value: `'./.private.pem'`
-Required: `for chrome-crx only`
+- Type: `String`
+- Default value: `'./.private.pem'`
+- Required: `for chrome-crx only`
 
 Private RSA 2048 key, used for extension sign process
 
 #### jwtIssuer
-Type: `String`
-Default value: `process.env.jwtIssuer`
-Required: `for firefox-xpi only`
+- Type: `String`
+- Default value: `process.env.jwtIssuer`
+- Required: `for firefox-xpi only`
 
 https://addons.mozilla.org API Issuer - keep it in safe place! Not on this file directly,
 go to https://addons.mozilla.org/en-US/developers/addon/api/key/ to receive or renew it
 
 #### jwtSecret
-Type: `String`
-Default value: `process.env.jwtSecret`
-Required: `for firefox-xpi only`
+- Type: `String`
+- Default value: `process.env.jwtSecret`
+- Required: `for firefox-xpi only`
 
 https://addons.mozilla.org API Secret - keep it in safe place! Not on this file directly,
 go to https://addons.mozilla.org/en-US/developers/addon/api/key/ to receive or renew it
 
 #### files
-Type: `Object`
-Default value: `empty`
-Required: `YES`
+- Type: `Object`
+- Default value: `empty`
+- Required: `YES`
 
 Grunt file list, recommended format is:
 `"destansion/dir":["source/dir/where/manifest.json/located"]`
@@ -88,8 +88,6 @@ Grunt file list, recommended format is:
 ### Usage Examples
 
 #### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
 ```js
 	grunt.loadNpmTasks('grunt-webext-builder');
 
