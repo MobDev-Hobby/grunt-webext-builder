@@ -42,9 +42,9 @@ grunt.initConfig({
 });
 ```
 
-### Targets
+### Options
 
-#### Extension type target
+#### targets
 Type: `Array<String>`
 Default value: `[]`
 Required: `YES`
