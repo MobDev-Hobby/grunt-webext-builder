@@ -66,7 +66,7 @@ Private RSA 2048 key, used for extension sign process
 - Default value: `process.env.jwtIssuer`
 - Required: `for firefox-xpi only`
 
-https://addons.mozilla.org API Issuer - keep it in safe place! Not on this file directly,
+https://addons.mozilla.org API Issuer - *keep it in safe place*, not on this file directly,
 go to https://addons.mozilla.org/en-US/developers/addon/api/key/ to receive or renew it
 
 #### jwtSecret
@@ -74,7 +74,7 @@ go to https://addons.mozilla.org/en-US/developers/addon/api/key/ to receive or r
 - Default value: `process.env.jwtSecret`
 - Required: `for firefox-xpi only`
 
-https://addons.mozilla.org API Secret - keep it in safe place! Not on this file directly,
+https://addons.mozilla.org API Secret - *keep it in safe place*, not on this file directly,
 go to https://addons.mozilla.org/en-US/developers/addon/api/key/ to receive or renew it
 
 #### files
