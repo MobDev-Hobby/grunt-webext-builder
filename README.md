@@ -79,27 +79,13 @@ go to https://addons.mozilla.org/en-US/developers/addon/api/key/ to receive or r
 
 #### files
 Type: `Object`
-Default value: ``
+Default value: `empty`
 Required: `YES`
 
 Grunt file list, recommended format is:
 `"destansion/dir":["source/dir/where/manifest.json/located"]`
 
 ### Usage Examples
-
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  webext_builder: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
 
 #### Custom Options
 In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
@@ -131,30 +117,29 @@ In this example, custom options are used to do something else with whatever else
 		},
 ```
 
-Run:
+#### Run examples
 
-!WARNING! when you fuild firefox extension, it's sources will be downloaded to addons.mozilla.com,
+**WARNING** when you fuild firefox extension, it's sources will be downloaded to addons.mozilla.com,
 but will not be acceccible for public by default. If no extension id defined in manifest.json,
 new extension id will be created for any sign. If extension ID defined, you couldn't sign one
  version more than one time.
 
-`jwtIssuer=user:jwtIssuer123 jwtSecret=12345 grunt webext_builder` - build chrome and firefox extensions from some sources
-Few files will be produced:
-`<dest>/your_extension_name_from_manifest-version-raw.xpi` - unsigned FF extension
-`<dest>/your_extension_name_from_manifest-version-an+fx.xpi` - signed FF extension
-`<dest>/your_extension_name_from_manifest-version-signed.crx` - signed Chrome extension
-`./.private.pem` or `<privateKey>` - extension private key, if not exists yet !keep it in safe place!
+##### Build chrome and firefox extension
+Run `jwtIssuer=user:jwtIssuer123 jwtSecret=12345 grunt webext_builder`
+- Unsigned FF extension: `<dest>/your_extension_name_from_manifest-version-raw.xpi`
+- Signed FF extension: `<dest>/your_extension_name_from_manifest-version-an+fx.xpi`
+- Signed Chrome extension: `<dest>/your_extension_name_from_manifest-version-signed.crx`
+- Extension private key, if not exists yet *keep it in safe place* :`./.private.pem` or `<privateKey>`
 
-`jwtIssuer=user:jwtIssuer123 jwtSecret=12345 grunt webext_builder:firefox` - build firefox extensions
-Few files will be produced:
-`<dest>/your_extension_name_from_manifest-version-raw.xpi` - unsigned FF extension
-`<dest>/your_extension_name_from_manifest-version-an+fx.xpi` - signed FF extension
+##### Build firefox extension
+Run `jwtIssuer=user:jwtIssuer123 jwtSecret=12345 grunt webext_builder:firefox` - build firefox extensions
+- Unsigned FF extension: `<dest>/your_extension_name_from_manifest-version-raw.xpi`
+- Signed FF extension: `<dest>/your_extension_name_from_manifest-version-an+fx.xpi`
 
-`grunt webext_builder:chrome` - build chrome extensions
-One file will be produced:
-`<dest>/your_extension_name_from_manifest-version-signed.crx` - signed Chrome extension
-`./.private.pem` or `<privateKey>` - extension private key, if not exists yet !keep it in safe place!
-
+##### Build chrome extension
+Run `grunt webext_builder:chrome`
+- Signed Chrome extension: `<dest>/your_extension_name_from_manifest-version-signed.crx`
+- Extension private key, if not exists yet *keep it in safe place* :`./.private.pem` or `<privateKey>`
 
 ## Contributing
 Feel free to contribute this repo :)
